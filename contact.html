@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Francis Salcedo</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio-theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Francis <span>Salcedo</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero container">
+      <p class="section-label">Contact</p>
+      <h1>Let's talk.</h1>
+      <p>Have a question or an opportunity in mind? Reach out through the form or any of the channels below.</p>
+    </section>
+
+    <section class="section container">
+      <div class="contact-wrap">
+        <div>
+          <div class="contact-info-item">
+            <div class="icon">@</div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:salcedofrancis88@gmail.com">salcedofrancis88@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon">f</div>
+            <div>
+              <h4>Facebook</h4>
+              <p><a href="https://www.facebook.com/francis.salcedo.26" target="_blank" rel="noopener">facebook.com/francis.salcedo.26</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon">ig</div>
+            <div>
+              <h4>Instagram</h4>
+              <p><a href="https://www.instagram.com/washi.washi.26" target="_blank" rel="noopener">@washi.washi.26</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name">
+              <span class="error-msg" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com">
+              <span class="error-msg" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message here..."></textarea>
+              <span class="error-msg" id="messageError"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Francis I. Salcedo. Personal Portfolio.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/francis.salcedo.26" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/washi.washi.26" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:salcedofrancis88@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+  <script src="js/script.js"></script>
+</body>
+</html>

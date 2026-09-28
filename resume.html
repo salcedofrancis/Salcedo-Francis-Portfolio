@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Francis Salcedo</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio-theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Francis <span>Salcedo</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero container">
+      <p class="section-label">Resume</p>
+      <h1>Education &amp; experience.</h1>
+      <p>My academic background, certifications, and hands-on experience so far.</p>
+    </section>
+
+    <section class="section container">
+      <div class="resume-cols">
+        <div>
+          <h2>Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">Current</span>
+              <h4>BS Information Technology</h4>
+              <p>Negros Oriental State University (NORSU)</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2024</span>
+              <h4>Senior High School</h4>
+              <p>Bayawan National High School / Macario Delfin Bermejo National High School</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2017</span>
+              <h4>Elementary</h4>
+              <p>Bayawan City East Central School (BCECS)</p>
+            </div>
+          </div>
+
+          <h2 style="margin-top: 1rem;">Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">Academic Project</span>
+              <h4>Programmer</h4>
+              <p>Programmer for the Barangay Records Management System (BRMS) and the Internship Monitoring and Evaluation System (IMES) — handled feature implementation and database work for both systems.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">OJT</span>
+              <h4>Computer Shop Assistant / Manager</h4>
+              <p>Managed the day-to-day operation of a computer shop (Comshop) as part of On-the-Job Training, handling basic troubleshooting and customer transactions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2>Certifications &amp; Training</h2>
+          <div class="cert-list">
+            <div class="cert-item">
+              <h4>Introduction to Modern AI</h4>
+              <span class="cert-issuer">Cisco Networking Academy</span>
+              <span class="cert-date">September 27, 2026</span>
+              <p class="cert-desc">Completed through the Cisco Networking Academy program.</p>
+              <a href="certificates/Introduction_to_Modern_AI_.pdf" target="_blank" rel="noopener" class="cert-link">View Certificate →</a>
+            </div>
+            <div class="cert-item">
+              <h4>Critical Thinking in the AI Era</h4>
+              <span class="cert-issuer">HP LIFE (HP Foundation)</span>
+              <span class="cert-date">September 27, 2026</span>
+              <p class="cert-desc">How AI-generated content can distort the truth, countering bias in decisions, and fact-checking tools.</p>
+              <a href="certificates/Critical_Thinking_in_the_AI_Era.pdf" target="_blank" rel="noopener" class="cert-link">View Certificate →</a>
+            </div>
+            <div class="cert-item">
+              <h4>AI for Business Professionals</h4>
+              <span class="cert-issuer">HP LIFE (HP Foundation)</span>
+              <span class="cert-date">September 10, 2026</span>
+              <p class="cert-desc">AI's role in business, effective prompting, ethical AI use, and AI tools for professional growth.</p>
+              <a href="certificates/AI_for_Business_Professionals.pdf" target="_blank" rel="noopener" class="cert-link">View Certificate →</a>
+            </div>
+            <div class="cert-item">
+              <h4>Strategic Planning in the AI Age</h4>
+              <span class="cert-issuer">HP LIFE (HP Foundation)</span>
+              <span class="cert-date">September 10, 2026</span>
+              <p class="cert-desc">Core components of a strategic plan, planning frameworks, and using AI tools for strategic thinking.</p>
+              <a href="certificates/Strategic_Planning_in_the_AI_Age.pdf" target="_blank" rel="noopener" class="cert-link">View Certificate →</a>
+            </div>
+            <div class="cert-item" style="border-bottom: none;">
+              <h4>Network Addressing and Basic Troubleshooting</h4>
+              <span class="cert-issuer">Cisco Networking Academy</span>
+              <span class="cert-date">May 17, 2026</span>
+              <p class="cert-desc">Completed through the Cisco Networking Academy program.</p>
+              <a href="certificates/Network_Addressing_and_Basic_Troubleshooting.pdf" target="_blank" rel="noopener" class="cert-link">View Certificate →</a>
+            </div>
+          </div>
+
+          <h2 style="margin-top: 2rem;">Goal</h2>
+          <div class="card">
+            <p>Aspiring to become an IT Professional serving with the Philippine Army — combining
+            technical skill with a role that serves the country.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Francis I. Salcedo. Personal Portfolio.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/francis.salcedo.26" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/washi.washi.26" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:salcedofrancis88@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+  <script src="js/script.js"></script>
+</body>
+</html>

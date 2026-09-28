@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills — Francis Salcedo</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio-theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Francis <span>Salcedo</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero container">
+      <p class="section-label">Skills</p>
+      <h1>What I work with.</h1>
+      <p>Languages, tools, and platforms I've used across coursework and personal projects.</p>
+    </section>
+
+    <section class="section container">
+      <div class="skills-group">
+        <h3>Languages</h3>
+        <div class="skill-detail-grid">
+
+          <div class="skill-item">
+            <div class="skill-item-head">
+              <h4>HTML</h4>
+              <span class="skill-level-tag">Advanced</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="85"></div></div>
+            <p>Structuring content and building clean, semantic page layouts.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-item-head">
+              <h4>CSS</h4>
+              <span class="skill-level-tag">Advanced</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="85"></div></div>
+            <p>Styling with Flexbox and Grid to build responsive, consistent layouts.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-item-head">
+              <h4>JavaScript</h4>
+              <span class="skill-level-tag">Basic</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="35"></div></div>
+            <p>Still building confidence here — comfortable with basic DOM interactions.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-item-head">
+              <h4>Java</h4>
+              <span class="skill-level-tag">Basic</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="30"></div></div>
+            <p>Basic OOP concepts, used mainly in small NetBeans-based desktop projects.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-item-head">
+              <h4>C++</h4>
+              <span class="skill-level-tag">Advanced</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80"></div></div>
+            <p>Comfortable with core logic, data structures, and file handling.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-item-head">
+              <h4>SQL / MySQL</h4>
+              <span class="skill-level-tag">Intermediate</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="50"></div></div>
+            <p>Writing queries to store, update, and retrieve data in database-driven apps.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="skill-tool-grid">
+
+          <div class="skill-tool-item">
+            <h4>Adobe Animate</h4>
+            <p>Building simple 2D animations and ads, like the "Baiphone" project.</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>VS Code</h4>
+            <p>Primary code editor for web development projects.</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>XAMPP</h4>
+            <p>Local server environment for testing PHP/MySQL-based web apps.</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>NetBeans</h4>
+            <p>Java IDE used for building desktop and web applications.</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>Sublime Text</h4>
+            <p>Lightweight text editor for quick edits and PHP projects.</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>Canva</h4>
+            <p>Designing simple graphics, social posts, and presentation slides.</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>GitHub</h4>
+            <p>Basic level — creating repositories and pushing project files.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3>Certified Knowledge</h3>
+        <div class="skill-tool-grid">
+
+          <div class="skill-tool-item">
+            <h4>Modern AI</h4>
+            <p>Completed Introduction to Modern AI through the Cisco Networking Academy program (Sep 2026).</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>AI for Business</h4>
+            <p>Learned AI's role in business, how to craft effective prompts, and how to use AI tools ethically (HP LIFE, Sep 2026).</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>Critical Thinking</h4>
+            <p>Learned to spot how AI-generated content can distort the truth, counter bias in decisions, and fact-check information (HP LIFE, Sep 2026).</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>Strategic Planning</h4>
+            <p>Learned the core components of a strategic plan, how to evaluate planning frameworks, and how to use AI to support strategic thinking (HP LIFE, Sep 2026).</p>
+          </div>
+
+          <div class="skill-tool-item">
+            <h4>Networking Basics</h4>
+            <p>Completed Network Addressing and Basic Troubleshooting through the Cisco Networking Academy program (May 2026).</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Francis I. Salcedo. Personal Portfolio.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/francis.salcedo.26" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/washi.washi.26" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:salcedofrancis88@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+  <script src="js/script.js"></script>
+</body>
+</html>

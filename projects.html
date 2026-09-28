@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Francis Salcedo</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio-theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Francis <span>Salcedo</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero container">
+      <p class="section-label">Projects</p>
+      <h1>Things I've built.</h1>
+      <p>A mix of web and desktop systems built for school requirements and personal practice.</p>
+    </section>
+
+    <section class="section container">
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-media"><img src="images/project1.jpg" alt="Barangay Records Management System screenshot"></div>
+          <div class="project-body">
+            <h3>Barangay Records Management System (BRMS)</h3>
+            <p>
+              A desktop-linked web application for managing barangay records — including document
+              requests, blotter entries, announcements, and generated reports for residents and staff.
+            </p>
+            <div class="project-tech">
+              <span>Java</span><span>NetBeans</span><span>XAMPP / MySQL</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media"><img src="images/project2.jpg" alt="Internship Monitoring and Evaluation System screenshot"></div>
+          <div class="project-body">
+            <h3>Internship Monitoring and Evaluation System (IMES)</h3>
+            <p>
+              A web-based system for tracking student interns — covering intern records, progress
+              monitoring, and evaluation, built to make OJT coordination easier for administrators.
+            </p>
+            <div class="project-tech">
+              <span>PHP</span><span>XAMPP / MySQL</span><span>Sublime Text</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media"><img src="images/project3.jpg" alt="Electronic Vehicular Incident Report System screenshot"></div>
+          <div class="project-body">
+            <h3>Electronic Vehicular Incident Report System</h3>
+            <p>
+              A web-based platform that lets users report vehicular incidents online, replacing
+              manual, paper-based reporting with a faster, centralized digital process.
+            </p>
+            <div class="project-tech">
+              <span>PHP</span><span>XAMPP / MySQL</span><span>Sublime Text</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media"><img src="images/project4.jpg" alt="Baiphone advertisement made in Adobe Animate"></div>
+          <div class="project-body">
+            <h3>Adobe Animate Project</h3>
+            <p>
+              An advertisement project made in Adobe Animate that showcases a product called "Baiphone".
+            </p>
+            <a href="https://www.facebook.com/share/v/19STJrRPkR/" target="_blank" rel="noopener" class="project-link">Watch the video →</a>
+            <div class="project-tech">
+              <span>Adobe Animate</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Francis I. Salcedo. Personal Portfolio.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/francis.salcedo.26" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/washi.washi.26" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:salcedofrancis88@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+  <script src="js/script.js"></script>
+</body>
+</html>
