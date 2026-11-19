@@ -1,0 +1,9 @@
+<?php
+// Local XAMPP defaults. For production, copy this file to database.local.php
+// and enter the private values provided by your hosting provider.
+return [
+    'host' => '127.0.0.1',
+    'name' => 'portfolio',
+    'user' => 'root',
+    'password' => '',
+];
