@@ -1,2 +1,5 @@
 DirectoryIndex index.php index.html
 Options -Indexes
+RewriteEngine On
+# Keep old bookmarks and direct links on the dynamic PHP pages.
+RewriteRule ^(index|about|skills|projects|resume|contact)\.html$ $1.php [R=301,L]
