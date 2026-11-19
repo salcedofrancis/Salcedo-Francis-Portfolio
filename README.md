@@ -1,68 +1,41 @@
 # Francis Salcedo Portfolio
 
-## About the project
+My portfolio website. It has pages about me, my skills, projects, education, and experience. I used HTML, CSS, JavaScript, PHP, and MySQL to make it.
 
-This is my personal portfolio website. It shares information about me, my skills, projects, education, and experience. I made it with HTML, CSS, JavaScript, PHP, and MySQL.
+## What it does
 
-## Features
-
-- Home, About, Skills, Projects, Resume, and Contact pages.
-- PHP pages can show information saved in the database.
-- Contact form saves visitor messages.
-- Admin pages let me manage portfolio information and read messages.
-- Mobile-friendly layout and dark mode.
+- Shows my portfolio pages.
+- Gets some page information from the database.
+- Lets visitors send me a message.
+- Has an admin page where I can update information and read messages.
+- Works on phones and has a dark theme.
 
 ## What you need
 
-- PHP 8.1 or newer.
+- XAMPP, or a web host that supports PHP and MySQL.
+- PHP 8.1 or later with PDO MySQL and Fileinfo enabled.
 - MySQL or MariaDB.
-- A web server such as Apache. XAMPP can be used for local testing.
-- PHP PDO MySQL and Fileinfo extensions enabled.
 
-## Set up the database
-
-1. Start MySQL in XAMPP, or open your hosting provider's database tools.
-2. Open phpMyAdmin.
-3. Import the `database/portfolio.sql` file.
-4. The SQL file creates a database called `portfolio` and adds the tables and starter information.
-5. If your host already gave you a database, follow its instructions for importing the SQL into that database. You may need to remove or change the `CREATE DATABASE` and `USE portfolio` lines at the start of the SQL file.
-
-## Install and run the website
-
-### On your computer with XAMPP
+## Run it with XAMPP
 
 1. Copy the project folder into XAMPP's `htdocs` folder.
-2. Start Apache and MySQL in the XAMPP Control Panel.
-3. Set these database environment variables for PHP, using your own database details:
-   - `PORTFOLIO_DB_HOST`
-   - `PORTFOLIO_DB_NAME`
-   - `PORTFOLIO_DB_USER`
-   - `PORTFOLIO_DB_PASSWORD`
-4. Open `http://localhost/Salcedo-Francis-Portfolio/` in your browser. If your folder has a different name, use that name in the address.
+2. Start Apache and MySQL in XAMPP.
+3. Open phpMyAdmin and import `database/portfolio.sql`.
+4. Set the database details for PHP using `PORTFOLIO_DB_HOST`, `PORTFOLIO_DB_NAME`, `PORTFOLIO_DB_USER`, and `PORTFOLIO_DB_PASSWORD`.
+5. Open `http://localhost/Salcedo-Francis-Portfolio/` in your browser.
 
-### On a web host
+If the folder has another name, use that name in the address. The SQL file creates the `portfolio` database. If you already have a database, change the first `CREATE DATABASE` and `USE portfolio` lines before importing.
 
-1. Choose a hosting plan that supports PHP and MySQL or MariaDB.
-2. Upload the project files to your website's document folder.
-3. Import the database SQL file using the host's database tools.
-4. Add the four database environment variables in the hosting control panel. Use the database details provided by the host.
-5. Turn on HTTPS and open your website to check that it works.
+## Put it online
 
-The site needs PHP to run. It will not work as a PHP website on GitHub Pages.
+Upload the project files to a web host that supports PHP and MySQL. Import `database/portfolio.sql`, then set the four database details in the hosting control panel. Use the database host, name, and user given by your hosting provider. Turn on HTTPS before using the admin page.
 
-## Create an administrator account
+## Make an admin account
 
-1. Open a terminal in the project folder on a computer or server that can run PHP.
-2. Run this command, replacing the example email with your own:
+In a terminal opened in the project folder, run this command with your email address:
 
-   ```sh
-   php scripts/create_admin.php you@example.com
-   ```
+```sh
+php scripts/create_admin.php you@example.com
+```
 
-3. Follow the prompt to create a strong password.
-4. Open `http://localhost/Salcedo-Francis-Portfolio/admin/login.php` locally, or use `/admin/login.php` on your hosted website.
-5. After creating the account, remove or disable `scripts/create_admin.php` on the live website.
-
-## Important
-
-Do not put database passwords or administrator passwords in this project or upload them to GitHub. Keep a backup of the database. Test the website locally before putting it online.
+Follow the prompt to choose a password. Then open `/admin/login.php` on your website to sign in. After the account is made, remove or disable `scripts/create_admin.php` on the live site.
