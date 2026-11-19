@@ -1,21 +1,42 @@
 <?php
-// Configure these environment variables in your hosting control panel; never commit credentials.
+// Configure database credentials with environment variables or the private
+// includes/database.local.php file. Never commit actual credentials.
 declare(strict_types=1);
 
 function db(): PDO
 {
     static $pdo = null;
     if ($pdo instanceof PDO) return $pdo;
-    $host = getenv('PORTFOLIO_DB_HOST') ?: '127.0.0.1';
-    $name = getenv('PORTFOLIO_DB_NAME') ?: '';
-    $user = getenv('PORTFOLIO_DB_USER') ?: '';
-    $pass = getenv('PORTFOLIO_DB_PASSWORD') ?: '';
-    if ($name === '' || $user === '') throw new RuntimeException('Database is not configured. See README.md.');
-    $pdo = new PDO("mysql:host={$host};dbname={$name};charset=utf8mb4", $user, $pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ]);
+
+    $privateConfig = __DIR__ . '/database.local.php';
+    $fileConfig = is_file($privateConfig) ? require $privateConfig : [];
+    if (!is_array($fileConfig)) $fileConfig = [];
+
+    // Environment variables take priority; private config supports hosts such
+    // as InfinityFree that may not offer custom environment variables.
+    $host = getenv('PORTFOLIO_DB_HOST') ?: ($fileConfig['host'] ?? '127.0.0.1');
+    $name = getenv('PORTFOLIO_DB_NAME') ?: ($fileConfig['name'] ?? 'portfolio');
+    $user = getenv('PORTFOLIO_DB_USER') ?: ($fileConfig['user'] ?? 'root');
+    $pass = getenv('PORTFOLIO_DB_PASSWORD');
+    if ($pass === false) $pass = $fileConfig['password'] ?? '';
+
+    if (!is_string($host) || !is_string($name) || !is_string($user) || !is_string($pass)
+        || $host === '' || $name === '' || $user === '') {
+        throw new RuntimeException('Database is not configured. Check the private database configuration.');
+    }
+
+    try {
+        $pdo = new PDO("mysql:host={$host};dbname={$name};charset=utf8mb4", $user, $pass, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ]);
+    } catch (PDOException $exception) {
+        // Keep detailed diagnostics in the server log, not in the page response.
+        error_log('Portfolio database connection failed: ' . $exception->getMessage());
+        throw new RuntimeException('Database connection failed. Check the database configuration.');
+    }
+
     return $pdo;
 }
 
