@@ -27,7 +27,6 @@ function initMobileNav() {
     hamburger.classList.toggle('is-active', isOpen);
   });
 
-  // Close the mobile menu after a link is tapped
   navLinks.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
       navLinks.classList.remove('open');
@@ -36,17 +35,11 @@ function initMobileNav() {
   });
 }
 
-/*
-   2. Dark / light theme toggle with localStorage
-   Remembers the visitor's preferred theme across pages
-   and across visits.
-*/
 function initThemeToggle() {
   const toggleBtn = document.getElementById('themeToggle');
   const root = document.documentElement;
   const savedTheme = localStorage.getItem('portfolio-theme');
 
-  // Apply saved theme (or fall back to the system preference) on load
   if (savedTheme) {
     root.setAttribute('data-theme', savedTheme);
   } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -72,11 +65,8 @@ function initThemeToggle() {
   }
 }
 
-/*
-   3. Active navigation link highlighting
-*/
 function setActiveNavLink() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPage = window.location.pathname.split('/').pop() || 'index.php';
   document.querySelectorAll('.nav-links a').forEach(function (link) {
     const linkPage = link.getAttribute('href');
     if (linkPage === currentPage) {
@@ -86,19 +76,12 @@ function setActiveNavLink() {
   });
 }
 
-/*
-   4. Scroll-to-top button
-*/
 function initScrollTopButton() {
   const btn = document.getElementById('scrollTopBtn');
   if (!btn) return;
 
   window.addEventListener('scroll', function () {
-    if (window.scrollY > 400) {
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
+    btn.classList.toggle('visible', window.scrollY > 400);
   });
 
   btn.addEventListener('click', function () {
@@ -106,11 +89,6 @@ function initScrollTopButton() {
   });
 }
 
-/*
-   5. Typing effect
-   Cycles through a list of roles/titles on the Home page
-   hero, typing and deleting each one letter by letter.
-*/
 function initTypingEffect() {
   const el = document.getElementById('typingText');
   if (!el) return;
@@ -122,13 +100,12 @@ function initTypingEffect() {
 
   function tick() {
     const current = phrases[phraseIndex];
-
     if (!deleting) {
       charIndex++;
       el.textContent = current.slice(0, charIndex);
       if (charIndex === current.length) {
         deleting = true;
-        setTimeout(tick, 1400); // pause before deleting
+        setTimeout(tick, 1400);
         return;
       }
     } else {
@@ -139,19 +116,11 @@ function initTypingEffect() {
         phraseIndex = (phraseIndex + 1) % phrases.length;
       }
     }
-
     setTimeout(tick, deleting ? 45 : 90);
   }
-
   tick();
 }
 
-/*
-   7. Skill bar animation (Skills page)
-   Fills each language's progress bar to its stored level
-   shortly after the page loads, giving a small animated
-   effect instead of the bar just appearing full.
-*/
 function initSkillBars() {
   const bars = document.querySelectorAll('.skill-bar-fill');
   if (!bars.length) return;
@@ -164,9 +133,6 @@ function initSkillBars() {
   }, 200);
 }
 
-/*
-   6. Contact form validation
-*/
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -177,8 +143,6 @@ function initContactForm() {
   const statusBox = document.getElementById('formStatus');
 
   form.addEventListener('submit', function (event) {
-    event.preventDefault();
-
     const nameValid = validateField(nameField, function (value) {
       return value.trim().length >= 2;
     }, 'Please enter your name (at least 2 characters).');
@@ -191,22 +155,19 @@ function initContactForm() {
       return value.trim().length >= 10;
     }, 'Message should be at least 10 characters long.');
 
-    if (nameValid && emailValid && messageValid) {
-      statusBox.textContent = 'Thanks, ' + nameField.value.trim() + '! Your message has been noted. I\'ll get back to you soon.';
-      statusBox.classList.add('success');
-      form.reset();
-    } else {
-      statusBox.classList.remove('success');
+    if (!(nameValid && emailValid && messageValid)) {
+      event.preventDefault();
       statusBox.textContent = '';
+      statusBox.classList.remove('success');
     }
   });
 
-  // Re-validate a field as soon as the visitor fixes it
   [nameField, emailField, messageField].forEach(function (field) {
     field.addEventListener('input', function () {
       if (field.classList.contains('invalid')) {
         field.classList.remove('invalid');
-        document.getElementById(field.id + 'Error').textContent = '';
+        const error = document.getElementById(field.id + 'Error');
+        if (error) error.textContent = '';
       }
     });
   });
@@ -214,13 +175,8 @@ function initContactForm() {
   function validateField(field, testFn, message) {
     const errorEl = document.getElementById(field.id + 'Error');
     const isValid = testFn(field.value);
-    if (!isValid) {
-      field.classList.add('invalid');
-      errorEl.textContent = message;
-    } else {
-      field.classList.remove('invalid');
-      errorEl.textContent = '';
-    }
+    field.classList.toggle('invalid', !isValid);
+    if (errorEl) errorEl.textContent = isValid ? '' : message;
     return isValid;
   }
 }
