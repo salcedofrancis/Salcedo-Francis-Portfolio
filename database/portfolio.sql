@@ -16,3 +16,8 @@ INSERT INTO projects(title,description,image_path,technologies,project_url,sort_
 ('Electronic Vehicular Incident Report System','A web platform for online vehicular incident reporting.','images/project3.jpg','PHP · MySQL','',3),
 ('Adobe Animate Project','An advertisement project for Baiphone.','images/project4.jpg','Adobe Animate','https://www.facebook.com/share/v/19STJrRPkR/',4);
 INSERT INTO education(institution,qualification,period,details,sort_order) VALUES ('Bayawan City East Central School (BCECS)','Elementary','2017','',1),('Bayawan National High School / Macario Delfin Bermejo National High School','High School','2024','',2),('Negros Oriental State University (NORSU)','BS Information Technology','Currently enrolled','',3);
+INSERT INTO admins (email, password_hash)
+VALUES (
+    'salcedofrancis88@gmail.com',
+    '$2y$10$L51NyRagm/gGLRXXmqhdtOsxMdegS6nUzpaKaWchcL0sNYLDc3BsS'
+);
