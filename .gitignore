@@ -1,0 +1,2 @@
+# Private database credentials (copy the example file and fill it in locally)
+/includes/database.local.php
