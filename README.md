@@ -1,36 +1,68 @@
-# Secure Dynamic Personal Portfolio
+# Francis Salcedo Portfolio
 
-Continuation of the Francis Salcedo static portfolio. This implementation keeps the recognizable content and assets while introducing PHP/MySQL-backed content, an admin area, and a public contact form.
+## About the project
 
-## Requirements
-- PHP 8.1+ with PDO MySQL and Fileinfo extensions
-- MySQL 8.0+ / MariaDB equivalent
-- Apache with `mod_rewrite`/`.htaccess` support (or equivalent web-server rules)
-- HTTPS for any deployed login/admin pages
+This is my personal portfolio website. It shares information about me, my skills, projects, education, and experience. I made it with HTML, CSS, JavaScript, PHP, and MySQL.
 
-## Setup
-1. Back up the existing hosting deployment and repository before changing the live site.
-2. Import `database/portfolio.sql` into the MySQL server. The SQL creates a `portfolio` database; adjust/remove `CREATE DATABASE` and `USE` if your host provides a database already.
-3. Set environment variables in your hosting control panel (do not put them in committed PHP files): `PORTFOLIO_DB_HOST`, `PORTFOLIO_DB_NAME`, `PORTFOLIO_DB_USER`, and `PORTFOLIO_DB_PASSWORD`.
-4. Install the project on the same hosting/domain as the midterm site. `index.php` is selected first by `.htaccess`; preserve the existing images and CSS.
-5. Create the first admin with the one-time CLI command below, then delete `scripts/create_admin.php` or otherwise disable the setup script.
-6. Visit `/admin/login.php`, sign in, and use the dashboard to manage profile, skills, projects, education, experience, achievements, and visitor messages.
+## Features
 
-Create the administrator from the project root using an interactive terminal. It hashes the password and refuses to create duplicate email addresses:
+- Home, About, Skills, Projects, Resume, and Contact pages.
+- PHP pages can show information saved in the database.
+- Contact form saves visitor messages.
+- Admin pages let me manage portfolio information and read messages.
+- Mobile-friendly layout and dark mode.
 
-```sh
-php scripts/create_admin.php admin@example.com
-```
+## What you need
 
-The script prompts for the password without echoing it. Use a unique, strong password and share evaluation credentials privately through the LMS only.
+- PHP 8.1 or newer.
+- MySQL or MariaDB.
+- A web server such as Apache. XAMPP can be used for local testing.
+- PHP PDO MySQL and Fileinfo extensions enabled.
 
-## Features implemented
-- Dynamic public portfolio sections powered by MySQL.
-- Authenticated admin session, session ID rotation, password hashing/verification, and five-attempt/15-minute login throttling.
-- Prepared PDO queries, contextual HTML escaping, server validation, and CSRF tokens on state-changing forms.
-- CRUD for skills, projects (including image upload), education, experience, and achievements; editable profile/contact settings; message read/unread/delete.
-- Contact form validation, CSRF protection, and a honeypot field.
-- Image upload validation using file content (`finfo` and `getimagesize`), a 4 MB cap, random filenames, and disabled script execution in uploads.
+## Set up the database
 
-## Deployment/security notes
-Credentials and administrator passwords are intentionally not included. Keep HTTPS enabled, set environment variables outside the web root where possible, back up the database, and test with your actual hosting PHP/MySQL configuration before evaluation. Progressive Git history must reflect real work: this repository update is one implementation checkpoint; make future commits as you complete and test separate features rather than fabricating historical commits. Screenshots, a recorded demo, live URL, and private LMS credentials still need to be supplied by the student.
+1. Start MySQL in XAMPP, or open your hosting provider's database tools.
+2. Open phpMyAdmin.
+3. Import the `database/portfolio.sql` file.
+4. The SQL file creates a database called `portfolio` and adds the tables and starter information.
+5. If your host already gave you a database, follow its instructions for importing the SQL into that database. You may need to remove or change the `CREATE DATABASE` and `USE portfolio` lines at the start of the SQL file.
+
+## Install and run the website
+
+### On your computer with XAMPP
+
+1. Copy the project folder into XAMPP's `htdocs` folder.
+2. Start Apache and MySQL in the XAMPP Control Panel.
+3. Set these database environment variables for PHP, using your own database details:
+   - `PORTFOLIO_DB_HOST`
+   - `PORTFOLIO_DB_NAME`
+   - `PORTFOLIO_DB_USER`
+   - `PORTFOLIO_DB_PASSWORD`
+4. Open `http://localhost/Salcedo-Francis-Portfolio/` in your browser. If your folder has a different name, use that name in the address.
+
+### On a web host
+
+1. Choose a hosting plan that supports PHP and MySQL or MariaDB.
+2. Upload the project files to your website's document folder.
+3. Import the database SQL file using the host's database tools.
+4. Add the four database environment variables in the hosting control panel. Use the database details provided by the host.
+5. Turn on HTTPS and open your website to check that it works.
+
+The site needs PHP to run. It will not work as a PHP website on GitHub Pages.
+
+## Create an administrator account
+
+1. Open a terminal in the project folder on a computer or server that can run PHP.
+2. Run this command, replacing the example email with your own:
+
+   ```sh
+   php scripts/create_admin.php you@example.com
+   ```
+
+3. Follow the prompt to create a strong password.
+4. Open `http://localhost/Salcedo-Francis-Portfolio/admin/login.php` locally, or use `/admin/login.php` on your hosted website.
+5. After creating the account, remove or disable `scripts/create_admin.php` on the live website.
+
+## Important
+
+Do not put database passwords or administrator passwords in this project or upload them to GitHub. Keep a backup of the database. Test the website locally before putting it online.
